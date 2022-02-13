@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "92017185186",
+    "firebase_url": "https://rugbydata-96193-default-rtdb.firebaseio.com",
+    "project_id": "rugbydata-96193",
+    "storage_bucket": "rugbydata-96193.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:92017185186:android:e051ca319a387499b422fb",
+        "android_client_info": {
+          "package_name": "com.phillV.rugbyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "92017185186-elc77mjgf6pp22f33kcsconc69n6hsgr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCulFCy2v-LIqSpPFqb3F5_GdX4yH3mpo0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "92017185186-elc77mjgf6pp22f33kcsconc69n6hsgr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

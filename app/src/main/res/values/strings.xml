@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">rugbyApp</string>
+    <string name="title_home">Home</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <!-- Strings related to login -->
+
+    <!-- Preference Titles -->
+
+    <!-- Messages Preferences -->
+
+    <!-- Sync Preferences -->
+    <string name="title_Matches">Matches</string>
+    <string name="title_Profile">Profile</string>
+    <string name="Competitions">Competitions</string>
+    <string name="Matches">Matches</string>
+    <string name="title_Competitions">Competitions</string>
+    <string name="title_dashboard">Profile</string>
+    <!-- Strings related to login -->
+</resources>
