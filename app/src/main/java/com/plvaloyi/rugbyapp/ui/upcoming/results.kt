@@ -1,6 +1,5 @@
-package com.phillVa.rugbyapp.ui.profile
+package com.phillVa.rugbyapp.ui.upcoming
 
-import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,17 +9,15 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.firebase.ui.firestore.FirestoreRecyclerAdapter
-import com.firebase.ui.firestore.FirestoreRecyclerOptions
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
-import com.google.firebase.ktx.Firebase
 import com.phillVa.rugbyapp.R
 import com.phillVa.rugbyapp.ui.competitions.upcomingMatchesResults
-import com.phillVa.rugbyapp.ui.upcoming.UpcomingMatchesViewModel
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.phillVa.rugbyapp.view.HelperFunctions
-import kotlinx.android.synthetic.main.newsfeed.view.*
+import kotlinx.android.synthetic.main.results.view.*
+import java.util.*
 
 class results : Fragment() {
 
@@ -28,7 +25,6 @@ class results : Fragment() {
     lateinit var competitionList: RecyclerView
     lateinit var connect: FirestoreRecyclerAdapter<upcomingMatchesResults, UpcomingMatchesViewModel>
     var helper = HelperFunctions
-    lateinit var options : FirestoreRecyclerOptions<upcomingMatchesResults>
 
 
     override fun onCreateView(
@@ -44,15 +40,17 @@ class results : Fragment() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var currentDate = helper.currentDate()
 
+        var currentDate = helper.currentDate()
 
         competitionList = view.findViewById(R.id.mainRecycler)
         db = FirebaseFirestore.getInstance()
 
-        var query = db.collectionGroup("fixtures")
+        var query = db.collectionGroup("fixtures").orderBy("fixtureDate", Query.Direction.DESCENDING)
+            .whereLessThanOrEqualTo("fixtureDate", currentDate)
 
-         options = FirestoreRecyclerOptions.Builder<upcomingMatchesResults>()
+
+        val options = FirestoreRecyclerOptions.Builder<upcomingMatchesResults>()
             .setQuery(query, upcomingMatchesResults::class.java).build()
 
         connect = object :
@@ -87,21 +85,17 @@ class results : Fragment() {
 
     }
 
-
-
     override fun onStart() {
         super.onStart()
         connect.startListening()
     }
 
-    override fun onPause() {
-        super.onPause()
-        connect.updateOptions(options)
-    }
-
     override fun onStop() {
         super.onStop()
-        connect.updateOptions(options)
+        connect.stopListening()
     }
+
+
+
 
 }

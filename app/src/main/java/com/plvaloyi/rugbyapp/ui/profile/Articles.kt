@@ -1,7 +1,5 @@
 package com.phillVa.rugbyapp.ui.profile
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,17 +8,12 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.phillVa.rugbyapp.R
-import com.phillVa.rugbyapp.ui.competition.competitionLayouts.holdersAndAdapters.CompetitionNewsViewHolder
 import com.phillVa.rugbyapp.ui.home.UsersArticles
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
-import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.competition_newsfeed.view.newsArticle
-import kotlinx.android.synthetic.main.competition_newsfeed.view.newsImage
-import kotlinx.android.synthetic.main.competition_newsfeed.view.newsSource
 import kotlinx.android.synthetic.main.users_newsfeed.view.*
 
 class Articles : Fragment() {

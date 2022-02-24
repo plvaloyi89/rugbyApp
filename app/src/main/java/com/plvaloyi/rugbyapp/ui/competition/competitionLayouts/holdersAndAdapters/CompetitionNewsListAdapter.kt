@@ -11,7 +11,6 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.phillVa.rugbyapp.ui.home.NewsData
-import com.squareup.picasso.MemoryPolicy
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.competition_newsfeed.view.*
 import kotlinx.android.synthetic.main.competition_newsfeed.view.newsArticle
@@ -20,15 +19,17 @@ import kotlinx.android.synthetic.main.newsfeed.view.*
 
 
 class CompetitionNewsListAdapter(var news: NewsData) :
-    RecyclerView.Adapter<CompetitionNewsViewHolder>() {
+    RecyclerView.Adapter<com.phillVa.rugbyapp.ui.competition.competitionLayouts.holdersAndAdapters.CompetitionNewsViewHolder>() {
 
     lateinit var db: FirebaseFirestore
     private val user = Firebase.auth.currentUser?.uid
 
-    override fun onCreateViewHolder(parent: ViewGroup, p1: Int): CompetitionNewsViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, p1: Int): com.phillVa.rugbyapp.ui.competition.competitionLayouts.holdersAndAdapters.CompetitionNewsViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val cellForRow = layoutInflater.inflate(R.layout.competition_newsfeed, parent, false)
-        return CompetitionNewsViewHolder(cellForRow)
+        return com.phillVa.rugbyapp.ui.competition.competitionLayouts.holdersAndAdapters.CompetitionNewsViewHolder(
+            cellForRow
+        )
 
     }
 
@@ -36,7 +37,7 @@ class CompetitionNewsListAdapter(var news: NewsData) :
         return news.data.count()
     }
 
-    override fun onBindViewHolder(holder: CompetitionNewsViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: com.phillVa.rugbyapp.ui.competition.competitionLayouts.holdersAndAdapters.CompetitionNewsViewHolder, position: Int) {
         val results = news.data[position]
         val downloadedUrl = results.image_url
         holder.itemView.newsArticle.text = results.title

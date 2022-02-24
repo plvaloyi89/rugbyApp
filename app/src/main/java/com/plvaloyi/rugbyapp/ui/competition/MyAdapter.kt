@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.phillVa.rugbyapp.ui.competition.competitionLayouts.fixtures
+
 import com.phillVa.rugbyapp.ui.competition.competitionLayouts.news
 import com.phillVa.rugbyapp.ui.competition.competitionLayouts.results
 import com.phillVa.rugbyapp.ui.competition.competitionLayouts.standings
@@ -19,7 +20,7 @@ class MyAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
                 return standings()
             }
             2 -> {
-                return fixtures()
+                return com.phillVa.rugbyapp.ui.competition.competitionLayouts.fixtures()
             }
             3 -> {
                 return results()

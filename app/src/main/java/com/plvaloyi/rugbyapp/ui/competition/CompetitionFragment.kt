@@ -29,7 +29,7 @@ class CompetitionFragment : Fragment() {
         val viewPager = root.findViewById<ViewPager>(R.id.viewPager)
         var compName = root.findViewById<TextView>(R.id.compName)
         var compImage = root.findViewById<ImageView>(R.id.competitionimageView)
-        viewPager.adapter = MyAdapter(childFragmentManager)
+        viewPager.adapter = com.phillVa.rugbyapp.ui.competition.MyAdapter(childFragmentManager)
 
         val tabLayout = root.findViewById<TabLayout>(R.id.tabLayout)
         tabLayout.setupWithViewPager(viewPager)

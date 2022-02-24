@@ -49,7 +49,7 @@ class news : Fragment() {
         val key = getString(R.string.news_api_key)
         var name = viewModel.competition_name.value?.replace(" ", "-")
 
-        val url = "https://api.thenewsapi.com/v1/news/all?api_token=${key}&search=${name}&language=en&published_after=${differenc}&domains=bbc.co.uk,theguardian.com&sort=published_on"
+        val url = "https://api.thenewsapi.com/v1/news/all?api_token=${key}&search=${name}&language=en&published_after=${differenc}&sort=published_on"
 
 
         val request = Request.Builder().url(url).build()
@@ -69,7 +69,10 @@ class news : Fragment() {
 
                 activity?.runOnUiThread {
 
-                    newsList.adapter = CompetitionNewsListAdapter(newsFeed)
+                    newsList.adapter =
+                        com.phillVa.rugbyapp.ui.competition.competitionLayouts.holdersAndAdapters.CompetitionNewsListAdapter(
+                            newsFeed
+                        )
                     newsList.setHasFixedSize(true)
                     newsList.setItemViewCacheSize(100)
                 }

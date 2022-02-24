@@ -10,7 +10,6 @@ import com.phillVa.rugbyapp.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
-import com.squareup.picasso.MemoryPolicy
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.newsfeed.view.*
 
@@ -26,9 +25,7 @@ class NewsListAdapter(var news: NewsData) : RecyclerView.Adapter<NewsViewHolder>
 
     }
 
-    override fun getItemCount(): Int {
-        return news.data.count()
-    }
+    override fun getItemCount(): Int = news.data.count()
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         val results = news.data[position]

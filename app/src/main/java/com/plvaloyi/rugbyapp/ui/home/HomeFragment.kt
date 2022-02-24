@@ -1,33 +1,23 @@
 package com.phillVa.rugbyapp.ui.home
 
-import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
-import android.os.Parcelable
-import android.provider.Settings.System.DATE_FORMAT
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.whenCreated
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.GsonBuilder
-import com.google.type.DateTime
 import com.phillVa.rugbyapp.R
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.newsfeed.*
 import okhttp3.*
 import java.io.IOException
-import java.text.DateFormat
-import java.text.SimpleDateFormat
 import java.time.*
-import java.time.format.DateTimeFormatter
-import java.time.format.FormatStyle
 import java.util.*
 import java.util.TimeZone.*
-import java.util.concurrent.Executor
 
 class HomeFragment : Fragment() {
 
@@ -67,6 +57,7 @@ class HomeFragment : Fragment() {
         val url = "https://api.thenewsapi.com/v1/news/all?api_token=${key}&search=rugby&language=en&published_after=${differenc}&domains=bbc.co.uk,theguardian.com&sort=published_on"
         val request = Request.Builder().url(url).build()
 
+
         client.newCall(request).enqueue(object: Callback {
             override fun onResponse(call: Call, response: Response) {
                 val body = response.body?.string()
@@ -74,12 +65,12 @@ class HomeFragment : Fragment() {
 
                 val gson = GsonBuilder().create()
 
-                val homeFeed = gson.fromJson(body, NewsData::class.java)
+                val homeFeed : NewsData = gson.fromJson(body, NewsData::class.java)
 
                 activity?.runOnUiThread{
                     newsList.adapter = NewsListAdapter(homeFeed)
                     newsList.setHasFixedSize(true)
-                    newsList.setItemViewCacheSize(100)
+
 
                 }
             }

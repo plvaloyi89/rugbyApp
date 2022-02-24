@@ -1,6 +1,5 @@
 package com.phillVa.rugbyapp.ui.upcoming
 
-import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,15 +13,8 @@ import com.phillVa.rugbyapp.R
 import com.phillVa.rugbyapp.ui.competitions.upcomingMatchesResults
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
-import com.squareup.picasso.MemoryPolicy
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fixtures.view.*
-import kotlinx.android.synthetic.main.fixtures.view.favorited
-import java.text.DateFormat
-import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.util.*
 

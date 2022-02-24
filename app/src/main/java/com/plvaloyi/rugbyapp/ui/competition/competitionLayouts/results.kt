@@ -1,7 +1,6 @@
 package com.phillVa.rugbyapp.ui.competition.competitionLayouts
 
 import android.content.ContentValues
-import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -15,28 +14,24 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.phillVa.rugbyapp.R
 import com.phillVa.rugbyapp.ui.competitions.upcomingMatchesResults
-import com.phillVa.rugbyapp.ui.upcoming.UpcomingMatchesViewModel
-import com.phillVa.rugbyapp.view.SharedViewModel
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
-import com.google.firebase.ktx.Firebase
-import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.fixtures.view.*
-import java.text.DateFormat
-import java.text.SimpleDateFormat
-import java.time.LocalDate
+import com.phillVa.rugbyapp.ui.upcoming.UpcomingMatchesViewModel
+import com.phillVa.rugbyapp.view.HelperFunctions
+import com.phillVa.rugbyapp.view.SharedViewModel
+import kotlinx.android.synthetic.main.results.view.*
 import java.util.*
 
-
-class fixtures : Fragment() {
+class results : Fragment() {
 
     lateinit var db: FirebaseFirestore
     lateinit var competitionList: RecyclerView
-    private val viewModel: SharedViewModel by activityViewModels()
     lateinit var connect: FirestoreRecyclerAdapter<upcomingMatchesResults, UpcomingMatchesViewModel>
+    var helper = HelperFunctions
+    private val viewModel: SharedViewModel by activityViewModels()
+
 
 
     override fun onCreateView(
@@ -48,18 +43,20 @@ class fixtures : Fragment() {
     }
 
 
+
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        var currentDate = helper.currentDate()
         var competitionName = viewModel.competition_name.value
-        //Log.d(ContentValues.TAG, "here $competitionName")
-        var currentDate = LocalDate.now().toString()
+        Log.d(ContentValues.TAG, "here $competitionName")
 
         competitionList = view.findViewById(R.id.mainRecycler)
         db = FirebaseFirestore.getInstance()
 
-        var query = db.collection("competitions/$competitionName/fixtures").orderBy("fixtureDate").whereGreaterThan("fixtureDate", currentDate)
+        var query = db.collection("competitions/$competitionName/fixtures").orderBy("fixtureDate", Query.Direction.DESCENDING)
+            .whereLessThanOrEqualTo("fixtureDate", currentDate)
 
 
         val options = FirestoreRecyclerOptions.Builder<upcomingMatchesResults>()
@@ -72,18 +69,18 @@ class fixtures : Fragment() {
                 viewType: Int
             ): UpcomingMatchesViewModel {
                 return UpcomingMatchesViewModel(
-                    LayoutInflater.from(parent.context).inflate(R.layout.fixtures, parent, false)
+                    LayoutInflater.from(parent.context).inflate(R.layout.results, parent, false)
                 )
             }
 
-            @RequiresApi(Build.VERSION_CODES.O)
             override fun onBindViewHolder(
                 holder: UpcomingMatchesViewModel,
                 position: Int,
                 model: upcomingMatchesResults
             ) {
-                holder.fixtures(model)
+                holder.results(model)
             }
+
 
         }
 
@@ -91,7 +88,9 @@ class fixtures : Fragment() {
         layoutManager.reverseLayout = false
         competitionList.setHasFixedSize(true)
         competitionList.layoutManager = layoutManager
+        competitionList.itemAnimator = null
         competitionList.adapter = connect
+
 
     }
 
@@ -104,5 +103,8 @@ class fixtures : Fragment() {
         super.onStop()
         connect.stopListening()
     }
+
+
+
 
 }

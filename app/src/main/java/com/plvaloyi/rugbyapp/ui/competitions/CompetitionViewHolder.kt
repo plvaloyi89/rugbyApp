@@ -1,13 +1,7 @@
 package com.phillVa.rugbyapp.ui.competitions
 
 import android.view.View
-import androidx.core.os.bundleOf
-import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.setFragmentResult
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.phillVa.rugbyapp.R
-import com.phillVa.rugbyapp.view.SharedViewModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.competitions.view.*
 
