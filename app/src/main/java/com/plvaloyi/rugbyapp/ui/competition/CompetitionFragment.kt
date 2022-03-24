@@ -1,4 +1,6 @@
-package com.phillVa.rugbyapp.ui.competition
+@file:Suppress("LocalVariableName", "LocalVariableName", "LocalVariableName")
+
+package com.plvaloyi.rugbyapp.ui.competition
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.viewpager.widget.ViewPager
-import com.phillVa.rugbyapp.R
+import com.plvaloyi.rugbyapp.R
 import com.google.android.material.tabs.TabLayout
 import com.squareup.picasso.Picasso
 
@@ -29,7 +31,7 @@ class CompetitionFragment : Fragment() {
         val viewPager = root.findViewById<ViewPager>(R.id.viewPager)
         var compName = root.findViewById<TextView>(R.id.compName)
         var compImage = root.findViewById<ImageView>(R.id.competitionimageView)
-        viewPager.adapter = com.phillVa.rugbyapp.ui.competition.MyAdapter(childFragmentManager)
+        viewPager.adapter = com.plvaloyi.rugbyapp.ui.competition.MyAdapter(childFragmentManager)
 
         val tabLayout = root.findViewById<TabLayout>(R.id.tabLayout)
         tabLayout.setupWithViewPager(viewPager)

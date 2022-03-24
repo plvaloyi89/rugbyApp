@@ -1,4 +1,4 @@
-package com.phillVa.rugbyapp.ui.home
+package com.plvaloyi.rugbyapp.ui.home
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

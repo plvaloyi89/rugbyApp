@@ -1,4 +1,8 @@
-package com.phillVa.rugbyapp.ui.competitions
+@file:Suppress("ClassName", "ClassName", "ClassName", "ClassName", "ClassName", "ClassName",
+    "ClassName", "ClassName", "ClassName", "ClassName", "ClassName"
+)
+
+package com.plvaloyi.rugbyapp.ui.competitions
 
 class Competitions(val id: String, val image: String, val name: String) {
     constructor() : this(
@@ -9,14 +13,14 @@ class Competitions(val id: String, val image: String, val name: String) {
 
 }
 
-class standingsTeam(
+data class standingsTeam(
     val id: String,
     val name: String,
     val played: String,
     val won: String,
     val Draw: String,
     val Lost: String,
-    val points: String
+    val point: Int
 ) {
     constructor() : this(
         "",
@@ -25,8 +29,7 @@ class standingsTeam(
         "",
         "",
         "",
-        "",
-
+        0
         )
 }
 

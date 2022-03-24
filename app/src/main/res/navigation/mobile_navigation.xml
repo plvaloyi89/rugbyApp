@@ -6,12 +6,12 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.phillVa.rugbyapp.ui.home.HomeFragment"
+        android:name="com.plvaloyi.rugbyapp.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/navigation_competitions"
-        android:name="com.phillVa.rugbyapp.ui.competitions.CompetitionsFragment"
+        android:name="com.plvaloyi.rugbyapp.ui.competitions.CompetitionsFragment"
         android:label="@string/title_Competitions"
         tools:layout="@layout/fragment_notifications"
    >
@@ -22,18 +22,18 @@
 
     <fragment
         android:id="@+id/navigation_upcoming"
-        android:name="com.phillVa.rugbyapp.ui.upcoming.upcomingMatches"
+        android:name="com.plvaloyi.rugbyapp.ui.upcoming.upcomingMatches"
         android:label="@string/title_Matches"
         tools:layout="@layout/upcoming_matches_results_fragment" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.phillVa.rugbyapp.ui.profile.DashboardFragment"
+        android:name="com.plvaloyi.rugbyapp.ui.profile.DashboardFragment"
         android:label="@string/title_Profile"
         tools:layout="@layout/fragment_dashboard" />
     <fragment
         android:id="@+id/compfragment"
-        android:name="com.phillVa.rugbyapp.ui.competition.CompetitionFragment"
+        android:name="com.plvaloyi.rugbyapp.ui.competition.CompetitionFragment"
         android:label="fragment_blank"
         tools:layout="@layout/fragment_competition" >
 

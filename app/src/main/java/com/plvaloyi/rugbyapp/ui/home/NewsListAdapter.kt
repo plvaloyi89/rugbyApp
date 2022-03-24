@@ -1,4 +1,4 @@
-package com.phillVa.rugbyapp.ui.home
+package com.plvaloyi.rugbyapp.ui.home
 
 import android.content.Intent
 import android.graphics.Color
@@ -6,12 +6,14 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.phillVa.rugbyapp.R
+import com.plvaloyi.rugbyapp.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.competition_newsfeed.view.*
 import kotlinx.android.synthetic.main.newsfeed.view.*
+import kotlinx.android.synthetic.main.results.view.*
 
 class NewsListAdapter(var news: NewsData) : RecyclerView.Adapter<NewsViewHolder>() {
 
@@ -30,15 +32,16 @@ class NewsListAdapter(var news: NewsData) : RecyclerView.Adapter<NewsViewHolder>
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         val results = news.data[position]
         db = FirebaseFirestore.getInstance()
-        holder.itemView.newsArticle.text = results.title
+        holder.itemView.article.text = results.title
         holder.itemView.source.text = results.source
         val downloadedUrl = results.image_url
 
 
         if (downloadedUrl.isEmpty()) {
-            // Rimage.setImageResource(R.mipmap.ic_placeholder_icon);
+            Picasso.get().load(R.mipmap.ic_launcher_foreground).fit()
+                .into(holder.itemView.image)
         } else {
-            Picasso.get().load(downloadedUrl).fit().into(holder.itemView.newsImage)
+            Picasso.get().load(downloadedUrl).fit().into(holder.itemView.image)
         }
         holder.newsResults = results
 
@@ -56,14 +59,14 @@ class NewsListAdapter(var news: NewsData) : RecyclerView.Adapter<NewsViewHolder>
              }
 
 
-        holder.itemView.newsArticle.setOnClickListener {
+        holder.itemView.article.setOnClickListener {
             val link = results.url
             val openUrl = Intent(Intent.ACTION_VIEW)
             openUrl.data = Uri.parse(link)
             holder.view.context.startActivity(openUrl)
         }
 
-        holder.itemView.newsImage.setOnClickListener {
+        holder.itemView.image.setOnClickListener {
             val link = results.url
             val openUrl = Intent(Intent.ACTION_VIEW)
             openUrl.data = Uri.parse(link)

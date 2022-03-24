@@ -1,4 +1,4 @@
-package com.phillVa.rugbyapp.ui.upcoming
+package com.plvaloyi.rugbyapp.ui.upcoming
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
-import com.phillVa.rugbyapp.R
+import com.plvaloyi.rugbyapp.R
 import com.google.android.material.tabs.TabLayout
 
 

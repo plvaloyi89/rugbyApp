@@ -11,7 +11,7 @@
     android:layout_marginBottom="5dp"
     android:layout_marginRight="5dp"
     android:layout_marginLeft="5dp"
-    >
+>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -26,34 +26,44 @@
             tools:ignore="MissingConstraints">
 
             <ImageView
-                android:id="@+id/newsImage"
+                android:id="@+id/image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
-
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.461" />
-
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/newsArticle"
+            android:id="@+id/article"
             android:layout_width="210dp"
             android:layout_height="65dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
             android:layout_marginTop="16dp"
-            android:layout_toEndOf="@+id/newsImage"
-            android:layout_toRightOf="@+id/newsImage"
-            android:padding="5dp"
+            android:layout_toEndOf="@+id/image"
+            android:layout_toRightOf="@+id/image"
             android:textColor="@color/secondaryDarkColor"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.065"
+            app:layout_constraintHorizontal_bias="0.131"
             app:layout_constraintStart_toEndOf="@+id/imageCard"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="NotSibling" />
+
+        <TextView
+            android:id="@+id/source"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="2dp"
+            android:labelFor="@id/source"
+            android:textColor="@color/secondaryDarkColor"
+            app:layout_constraintStart_toEndOf="@+id/imageCard"
+            app:layout_constraintTop_toBottomOf="@+id/article"
+            tools:ignore="MissingConstraints" />
 
         <ImageView
             android:id="@+id/favorited"
@@ -65,22 +75,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.916"
+            app:layout_constraintVertical_bias="0.864"
             app:srcCompat="@drawable/ic_star_border_black_24dp"
             tools:ignore="VectorDrawableCompat" />
-
-        <TextView
-            android:id="@+id/source"
-            android:layout_width="153dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="2dp"
-            android:padding="5dp"
-            android:text="Source"
-            android:textColor="@color/secondaryDarkColor"
-            app:layout_constraintStart_toEndOf="@+id/imageCard"
-            app:layout_constraintTop_toBottomOf="@+id/newsArticle" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

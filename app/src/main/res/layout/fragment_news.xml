@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.competition.competitionLayouts.news">
+    tools:context="com.plvaloyi.rugbyapp.ui.competition.competitionLayouts.news">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mainRecycler"

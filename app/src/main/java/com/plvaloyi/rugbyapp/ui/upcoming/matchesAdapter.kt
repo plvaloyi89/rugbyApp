@@ -1,4 +1,4 @@
-package com.phillVa.rugbyapp.ui.upcoming
+package com.plvaloyi.rugbyapp.ui.upcoming
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

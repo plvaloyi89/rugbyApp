@@ -1,4 +1,6 @@
-package com.phillVa.rugbyapp
+@file:Suppress("PrivatePropertyName")
+
+package com.plvaloyi.rugbyapp
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -6,8 +8,6 @@ import android.content.ContentValues.TAG
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
-import android.os.StrictMode
-import android.os.StrictMode.ThreadPolicy
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -19,8 +19,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,6 +28,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(R.style.MainTheme)
         supportActionBar?.hide()
         setContentView(R.layout.activity_main)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
@@ -67,6 +66,8 @@ class MainActivity : AppCompatActivity() {
                     //updateUI(null)
                 }
             }
+
+
     }
 
     private fun createNotificationChanel(){

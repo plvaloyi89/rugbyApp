@@ -1,4 +1,4 @@
-package com.phillVa.rugbyapp.ui.profile
+package com.plvaloyi.rugbyapp.ui.profile
 
 import android.os.Build
 import android.os.Bundle
@@ -15,9 +15,11 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.google.firebase.ktx.Firebase
-import com.phillVa.rugbyapp.R
-import com.phillVa.rugbyapp.ui.competitions.upcomingMatchesResults
+import com.plvaloyi.rugbyapp.R
+import com.plvaloyi.rugbyapp.ui.competitions.upcomingMatchesResults
+import com.plvaloyi.rugbyapp.view.HelperFunctions
 import java.time.Duration
 import java.time.LocalDate
 import java.time.LocalTime
@@ -28,7 +30,7 @@ class Upcoming : Fragment() {
     private var user = Firebase.auth.currentUser?.uid
     lateinit var competitionList: RecyclerView
     lateinit var connect: FirestoreRecyclerAdapter<upcomingMatchesResults, DashboardViewModel>
-
+    var helper = HelperFunctions
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,13 +42,15 @@ class Upcoming : Fragment() {
     }
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        var currentDate = helper.currentDate()
         competitionList = view.findViewById(R.id.mainRecycler)
         db = FirebaseFirestore.getInstance()
 
-        var query = db.collection("users/$user/fixture")
+        var query = db.collection("users/$user/fixture").orderBy("fixtureDate", Query.Direction.DESCENDING)
+            .whereGreaterThanOrEqualTo("fixtureDate", currentDate)
 
         val options = FirestoreRecyclerOptions.Builder<upcomingMatchesResults>()
             .setQuery(query, upcomingMatchesResults::class.java).build()
@@ -101,13 +105,13 @@ class Upcoming : Fragment() {
         val currentHour = LocalTime.now().hour
         val currentMinutes = LocalTime.now().minute
         val currentTime = "${currentHour}:${currentMinutes}"
-        println("${currentTime} and ${gameTime}")
+        println("$currentTime and $gameTime")
         val time = LocalTime.now()
         val mytime = LocalTime.parse(gameTime)
         val calculated = Duration.between(time,mytime).toMinutes()
 
-        if (currentDate == gameDate && calculated < 30){
-           // sendNotification(homeTeam,awayTeam)
+       if (currentDate == gameDate && calculated < 60){
+            sendNotification(homeTeam,awayTeam)
         }
 
     }
@@ -119,7 +123,7 @@ class Upcoming : Fragment() {
         val builder : NotificationCompat.Builder = NotificationCompat.Builder(requireContext(),channel_ID)
             .setSmallIcon(R.drawable.ic_sports_rugby_black_24dp)
             .setContentTitle("Rugby Info")
-            .setContentText("Upcoming Match: ${homeTeam} vs ${awayTeam}")
+            .setContentText("Upcoming Match: $homeTeam vs $awayTeam")
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
         with(NotificationManagerCompat.from(requireContext())){

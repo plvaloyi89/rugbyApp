@@ -1,4 +1,4 @@
-package com.phillVa.rugbyapp.ui.competition.competitionLayouts
+package com.plvaloyi.rugbyapp.ui.competition.competitionLayouts
 
 import android.os.Build
 import android.os.Bundle
@@ -10,16 +10,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.phillVa.rugbyapp.R
-import com.phillVa.rugbyapp.ui.competitions.upcomingMatchesResults
-import com.phillVa.rugbyapp.ui.upcoming.UpcomingMatchesViewModel
-import com.phillVa.rugbyapp.view.SharedViewModel
+import com.plvaloyi.rugbyapp.R
+import com.plvaloyi.rugbyapp.ui.competitions.upcomingMatchesResults
+import com.plvaloyi.rugbyapp.ui.upcoming.UpcomingMatchesViewModel
+import com.plvaloyi.rugbyapp.view.SharedViewModel
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.fixtures.view.*
 import java.time.LocalDate
-import java.util.*
 
 
 class fixtures : Fragment() {

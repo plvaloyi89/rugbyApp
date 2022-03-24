@@ -1,4 +1,4 @@
-package com.phillVa.rugbyapp
+package com.plvaloyi.rugbyapp
 
 import org.junit.Test
 

@@ -25,29 +25,27 @@
             android:layout_width="58dp"
             android:layout_height="75dp"
             android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
             android:labelFor="@id/homeTeamImage"
             app:layout_constraintBottom_toBottomOf="@id/structure"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.035"
             app:layout_constraintStart_toStartOf="@id/structure"
             app:layout_constraintTop_toTopOf="@id/structure"
-            app:layout_constraintVertical_bias="0.258"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:layout_constraintVertical_bias="0.068"
+            tools:srcCompat="@mipmap/newsfeed_foreground" />
 
         <ImageView
             android:id="@+id/awayTeamImage"
             android:layout_width="58dp"
             android:layout_height="75dp"
             android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
             android:labelFor="@id/awayTeamImage"
             app:layout_constraintBottom_toBottomOf="@id/structure"
             app:layout_constraintEnd_toEndOf="@id/structure"
             app:layout_constraintHorizontal_bias="0.943"
             app:layout_constraintStart_toEndOf="@+id/homeTeamImage"
             app:layout_constraintTop_toTopOf="@id/structure"
-            app:layout_constraintVertical_bias="0.258"
+            app:layout_constraintVertical_bias="0.053"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
@@ -56,14 +54,13 @@
             android:layout_height="36dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginRight="20dp"
             android:gravity="center"
             android:labelFor="@id/awayTeam"
             android:text="TextView"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/awayTeamImage"
-            app:layout_constraintVertical_bias="0.071"
+            app:layout_constraintVertical_bias="0.0"
             tools:ignore="MissingConstraints" />
 
         <TextView
@@ -126,17 +123,17 @@
 
         <TextView
             android:id="@+id/compName"
-            android:layout_width="77dp"
-            android:layout_height="36dp"
+            android:layout_width="116dp"
+            android:layout_height="38dp"
             android:gravity="center"
             android:labelFor="@id/compName"
             android:text="TextView"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/awayTeam"
-            app:layout_constraintHorizontal_bias="0.525"
+            app:layout_constraintHorizontal_bias="0.55"
             app:layout_constraintStart_toEndOf="@+id/homeTeam"
             app:layout_constraintTop_toBottomOf="@+id/versus"
-            app:layout_constraintVertical_bias="0.387" />
+            app:layout_constraintVertical_bias="0.523" />
 
         <ImageView
             android:id="@+id/favorited"
@@ -144,8 +141,10 @@
             android:layout_height="24dp"
             android:layout_marginEnd="124dp"
             android:layout_marginRight="124dp"
+            android:labelFor="@id/favorited"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/fixturedate"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.029"
             app:srcCompat="@drawable/ic_star_border_black_24dp"

@@ -1,3 +1,5 @@
 include ':app'
 rootProject.name = "rugbyApp"
-include ':rugbyInfo'
+include ':rugbyApp'
+include ':shared'
+include ':progressfragment'

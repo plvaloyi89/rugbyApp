@@ -1,13 +1,12 @@
-package com.phillVa.rugbyapp.ui.competition
+package com.plvaloyi.rugbyapp.ui.competition
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.phillVa.rugbyapp.ui.competition.competitionLayouts.fixtures
 
-import com.phillVa.rugbyapp.ui.competition.competitionLayouts.news
-import com.phillVa.rugbyapp.ui.competition.competitionLayouts.results
-import com.phillVa.rugbyapp.ui.competition.competitionLayouts.standings
+import com.plvaloyi.rugbyapp.ui.competition.competitionLayouts.news
+import com.plvaloyi.rugbyapp.ui.competition.competitionLayouts.results
+import com.plvaloyi.rugbyapp.ui.competition.competitionLayouts.standings
 
 class MyAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
@@ -20,7 +19,7 @@ class MyAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
                 return standings()
             }
             2 -> {
-                return com.phillVa.rugbyapp.ui.competition.competitionLayouts.fixtures()
+                return com.plvaloyi.rugbyapp.ui.competition.competitionLayouts.fixtures()
             }
             3 -> {
                 return results()

@@ -1,4 +1,4 @@
-package com.phillVa.rugbyapp.ui.competition.competitionLayouts
+package com.plvaloyi.rugbyapp.ui.competition.competitionLayouts
 
 
 import android.content.ContentValues.TAG
@@ -11,10 +11,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.phillVa.rugbyapp.R
-import com.phillVa.rugbyapp.ui.competition.competitionLayouts.holdersAndAdapters.StandingsViewHolder
-import com.phillVa.rugbyapp.ui.competitions.standingsTeam
-import com.phillVa.rugbyapp.view.SharedViewModel
+import com.plvaloyi.rugbyapp.R
+import com.plvaloyi.rugbyapp.ui.competition.competitionLayouts.holdersAndAdapters.StandingsViewHolder
+import com.plvaloyi.rugbyapp.ui.competitions.standingsTeam
+import com.plvaloyi.rugbyapp.view.SharedViewModel
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
@@ -43,14 +43,11 @@ class standings : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         var competitionName = viewModel.competition_name.value
-        Log.d(TAG, "here $competitionName")
-
-
 
         competitionList = view.findViewById(R.id.table_recycler_view)
         db = FirebaseFirestore.getInstance()
 
-        var query = db.collection("competitions/$competitionName/teams").orderBy("points", Query.Direction.DESCENDING)
+        var query = db.collection("competitions/$competitionName/teams").orderBy("point", Query.Direction.DESCENDING)
 
 
         val options = FirestoreRecyclerOptions.Builder<standingsTeam>()

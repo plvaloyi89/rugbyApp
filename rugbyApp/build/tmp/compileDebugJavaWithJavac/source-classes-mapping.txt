@@ -1,0 +1,2 @@
+com/example/rugbyApp/BuildConfig.java
+ com.example.rugbyApp.BuildConfig

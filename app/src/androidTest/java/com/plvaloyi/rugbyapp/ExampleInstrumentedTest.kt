@@ -1,4 +1,4 @@
-package com.phillVa.rugbyapp
+package com.plvaloyi.rugbyapp
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

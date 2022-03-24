@@ -1,4 +1,6 @@
-package com.example.rugbyinfo
+package com.example.rugbyApp
+
+import com.example.rugbyinfo.Platform
 
 class Greeting {
     fun greeting(): String {

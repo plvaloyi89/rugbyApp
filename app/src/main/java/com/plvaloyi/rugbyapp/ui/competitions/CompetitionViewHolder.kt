@@ -1,4 +1,6 @@
-package com.phillVa.rugbyapp.ui.competitions
+@file:Suppress("FunctionName", "FunctionName")
+
+package com.plvaloyi.rugbyapp.ui.competitions
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

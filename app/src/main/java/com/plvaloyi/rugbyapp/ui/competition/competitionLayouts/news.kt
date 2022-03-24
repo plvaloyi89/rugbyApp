@@ -1,19 +1,19 @@
-package com.phillVa.rugbyapp.ui.competition.competitionLayouts
+package com.plvaloyi.rugbyapp.ui.competition.competitionLayouts
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.phillVa.rugbyapp.R
-import com.phillVa.rugbyapp.ui.competition.competitionLayouts.holdersAndAdapters.CompetitionNewsListAdapter
-import com.phillVa.rugbyapp.view.SharedViewModel
+import com.plvaloyi.rugbyapp.R
+import com.plvaloyi.rugbyapp.view.SharedViewModel
 import com.google.gson.GsonBuilder
-import com.phillVa.rugbyapp.ui.home.NewsData
-import kotlinx.android.synthetic.main.fragment_home.*
+import com.plvaloyi.rugbyapp.ui.home.NewsData
 import okhttp3.*
 import java.io.IOException
 import java.time.LocalDate
@@ -40,6 +40,7 @@ class news : Fragment() {
         newsList.layoutManager = LinearLayoutManager(activity)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     fun fetchJson() {
 
         val client = OkHttpClient()
@@ -70,7 +71,7 @@ class news : Fragment() {
                 activity?.runOnUiThread {
 
                     newsList.adapter =
-                        com.phillVa.rugbyapp.ui.competition.competitionLayouts.holdersAndAdapters.CompetitionNewsListAdapter(
+                        com.plvaloyi.rugbyapp.ui.competition.competitionLayouts.holdersAndAdapters.CompetitionNewsListAdapter(
                             newsFeed
                         )
                     newsList.setHasFixedSize(true)

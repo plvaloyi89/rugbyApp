@@ -1,4 +1,4 @@
-package com.phillVa.rugbyapp.ui.profile
+package com.plvaloyi.rugbyapp.ui.profile
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -14,9 +14,9 @@ class DashboardMyAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
             1 -> {
                 return Upcoming()
             }
-//            2 -> {
-//                return results()
-//            }
+            2 -> {
+                return results()
+            }
             else -> {
                 return Articles()
             }
@@ -24,7 +24,7 @@ class DashboardMyAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
     }
 
     override fun getCount(): Int {
-        return 2
+        return 3
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
@@ -35,9 +35,9 @@ class DashboardMyAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
             1 -> {
                 return "Upcoming"
             }
-//            2 -> {
-//                return "Results"
-//            }
+            2 -> {
+                return "Results"
+            }
         }
         return super.getPageTitle(position)
     }

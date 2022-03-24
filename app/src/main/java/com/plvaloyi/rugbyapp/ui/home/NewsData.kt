@@ -1,4 +1,4 @@
-package com.phillVa.rugbyapp.ui.home
+package com.plvaloyi.rugbyapp.ui.home
 
 class NewsData(val data: List<News>)
 

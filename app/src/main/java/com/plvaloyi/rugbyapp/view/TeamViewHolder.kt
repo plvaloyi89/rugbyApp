@@ -1,16 +1,24 @@
-package com.phillVa.rugbyapp.view
+@file:Suppress("PropertyName")
 
-import androidx.lifecycle.LiveData
+package com.plvaloyi.rugbyapp.view
+
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.plvaloyi.rugbyapp.ui.home.News
+import com.plvaloyi.rugbyapp.ui.home.NewsData
 
 class SharedViewModel : ViewModel() {
 
     val competition_name = MutableLiveData<String>()
-    val selectedItem: LiveData<String> get() = competition_name
+    val newsinfo = MutableLiveData<List<NewsData>>()
 
     fun CompName(item: String) {
         competition_name.value = item
+    }
+
+
+    fun getUserMutableLiveData(): MutableLiveData<List<NewsData>> {
+        return newsinfo
     }
 
 

@@ -1,4 +1,4 @@
-package com.phillVa.rugbyapp.ui.competition.competitionLayouts.holdersAndAdapters
+package com.plvaloyi.rugbyapp.ui.competition.competitionLayouts.holdersAndAdapters
 
 import android.content.Intent
 import android.graphics.Color
@@ -6,28 +6,27 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.phillVa.rugbyapp.R
+import com.plvaloyi.rugbyapp.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
-import com.phillVa.rugbyapp.ui.home.NewsData
+import com.plvaloyi.rugbyapp.ui.home.NewsData
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.competition_newsfeed.view.*
 import kotlinx.android.synthetic.main.competition_newsfeed.view.newsArticle
 import kotlinx.android.synthetic.main.competition_newsfeed.view.newsImage
-import kotlinx.android.synthetic.main.newsfeed.view.*
 
 
 class CompetitionNewsListAdapter(var news: NewsData) :
-    RecyclerView.Adapter<com.phillVa.rugbyapp.ui.competition.competitionLayouts.holdersAndAdapters.CompetitionNewsViewHolder>() {
+    RecyclerView.Adapter<com.plvaloyi.rugbyapp.ui.competition.competitionLayouts.holdersAndAdapters.CompetitionNewsViewHolder>() {
 
     lateinit var db: FirebaseFirestore
     private val user = Firebase.auth.currentUser?.uid
 
-    override fun onCreateViewHolder(parent: ViewGroup, p1: Int): com.phillVa.rugbyapp.ui.competition.competitionLayouts.holdersAndAdapters.CompetitionNewsViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, p1: Int): com.plvaloyi.rugbyapp.ui.competition.competitionLayouts.holdersAndAdapters.CompetitionNewsViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val cellForRow = layoutInflater.inflate(R.layout.competition_newsfeed, parent, false)
-        return com.phillVa.rugbyapp.ui.competition.competitionLayouts.holdersAndAdapters.CompetitionNewsViewHolder(
+        return com.plvaloyi.rugbyapp.ui.competition.competitionLayouts.holdersAndAdapters.CompetitionNewsViewHolder(
             cellForRow
         )
 
@@ -37,7 +36,7 @@ class CompetitionNewsListAdapter(var news: NewsData) :
         return news.data.count()
     }
 
-    override fun onBindViewHolder(holder: com.phillVa.rugbyapp.ui.competition.competitionLayouts.holdersAndAdapters.CompetitionNewsViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: com.plvaloyi.rugbyapp.ui.competition.competitionLayouts.holdersAndAdapters.CompetitionNewsViewHolder, position: Int) {
         val results = news.data[position]
         val downloadedUrl = results.image_url
         holder.itemView.newsArticle.text = results.title

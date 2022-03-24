@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.phillVa.rugbyapp">
+    package="com.plvaloyi.rugbyapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-
     <application
         android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.App">
+        android:theme="@style/MainTheme">
+        <meta-data
+            android:name="firebase_performance_logcat_enabled"
+            android:value="true" />
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@xml/ic_launcher_ball" />
 
         <activity
-            android:name="com.phillVa.rugbyapp.ui.home.HomeFragment"
+            android:name=".ui.home.HomeFragment"
             tools:ignore="Instantiatable" />
         <activity
-            android:name="com.phillVa.rugbyapp.MainActivity"
-            android:label="@string/app_name">
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            tools:ignore="DuplicateActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

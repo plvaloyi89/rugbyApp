@@ -1,17 +1,9 @@
-package com.phillVa.rugbyapp.view
+package com.plvaloyi.rugbyapp.view
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.os.Build
-import android.provider.Settings.Secure.getString
 import androidx.annotation.RequiresApi
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
-import androidx.core.content.ContentProviderCompat.requireContext
-import com.phillVa.rugbyapp.R
 import okhttp3.OkHttpClient
-import okhttp3.Request
-import java.io.IOException
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.time.*
@@ -20,7 +12,6 @@ import java.util.*
 
 object HelperFunctions {
 
-    private val client = OkHttpClient()
 
     //converts the fixtureTime to devices default time zone
     // Credit for this function goes to mkyong , https://mkyong.com/java/java-convert-date-and-time-between-timezone/

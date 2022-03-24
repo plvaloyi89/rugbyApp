@@ -1,4 +1,4 @@
-package com.phillVa.rugbyapp.ui.upcoming
+package com.plvaloyi.rugbyapp.ui.upcoming
 
 import android.os.Build
 import android.os.Bundle
@@ -9,15 +9,13 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.phillVa.rugbyapp.R
-import com.phillVa.rugbyapp.ui.competitions.upcomingMatchesResults
+import com.plvaloyi.rugbyapp.R
+import com.plvaloyi.rugbyapp.ui.competitions.upcomingMatchesResults
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
-import com.phillVa.rugbyapp.view.HelperFunctions
-import kotlinx.android.synthetic.main.results.view.*
-import java.util.*
+import com.plvaloyi.rugbyapp.view.HelperFunctions
 
 class results : Fragment() {
 

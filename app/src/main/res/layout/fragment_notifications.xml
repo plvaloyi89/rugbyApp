@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.competitions.CompetitionsFragment"
+    tools:context="com.plvaloyi.rugbyapp.ui.competitions.CompetitionsFragment"
     android:background="@color/cardview_shadow_end_color">
 
     <androidx.recyclerview.widget.RecyclerView

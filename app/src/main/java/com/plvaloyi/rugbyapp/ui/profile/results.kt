@@ -1,4 +1,4 @@
-package com.phillVa.rugbyapp.ui.profile
+package com.plvaloyi.rugbyapp.ui.profile
 
 import android.os.Build
 import android.os.Bundle
@@ -7,24 +7,30 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.phillVa.rugbyapp.R
-import com.phillVa.rugbyapp.ui.competitions.upcomingMatchesResults
-import com.phillVa.rugbyapp.ui.upcoming.UpcomingMatchesViewModel
-import com.phillVa.rugbyapp.view.HelperFunctions
-import kotlinx.android.synthetic.main.newsfeed.view.*
+import com.google.firebase.firestore.Query
+import com.google.firebase.ktx.Firebase
+import com.plvaloyi.rugbyapp.R
+import com.plvaloyi.rugbyapp.ui.competitions.upcomingMatchesResults
+import com.plvaloyi.rugbyapp.view.HelperFunctions
+import com.plvaloyi.rugbyapp.view.SharedViewModel
 
 class results : Fragment() {
 
     lateinit var db: FirebaseFirestore
     lateinit var competitionList: RecyclerView
-    lateinit var connect: FirestoreRecyclerAdapter<upcomingMatchesResults, UpcomingMatchesViewModel>
+    private var user = Firebase.auth.currentUser?.uid
+    lateinit var connect: FirestoreRecyclerAdapter<upcomingMatchesResults, DashboardViewModel>
     var helper = HelperFunctions
     lateinit var options : FirestoreRecyclerOptions<upcomingMatchesResults>
+    private val model: SharedViewModel by viewModels()
+
 
 
     override fun onCreateView(
@@ -41,33 +47,33 @@ class results : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var currentDate = helper.currentDate()
-
-
         competitionList = view.findViewById(R.id.mainRecycler)
         db = FirebaseFirestore.getInstance()
 
-        var query = db.collectionGroup("fixtures")
+
+        var query = db.collection("users/$user/fixture").orderBy("fixtureDate", Query.Direction.DESCENDING)
+            .whereLessThanOrEqualTo("fixtureDate", currentDate)
 
          options = FirestoreRecyclerOptions.Builder<upcomingMatchesResults>()
             .setQuery(query, upcomingMatchesResults::class.java).build()
 
         connect = object :
-            FirestoreRecyclerAdapter<upcomingMatchesResults, UpcomingMatchesViewModel>(options) {
+            FirestoreRecyclerAdapter<upcomingMatchesResults, DashboardViewModel>(options) {
             override fun onCreateViewHolder(
                 parent: ViewGroup,
                 viewType: Int
-            ): UpcomingMatchesViewModel {
-                return UpcomingMatchesViewModel(
-                    LayoutInflater.from(parent.context).inflate(R.layout.results, parent, false)
+            ): DashboardViewModel {
+                return DashboardViewModel(
+                    LayoutInflater.from(parent.context).inflate(R.layout.user_favourited_results, parent, false)
                 )
             }
 
             override fun onBindViewHolder(
-                holder: UpcomingMatchesViewModel,
+                holder: DashboardViewModel,
                 position: Int,
                 model: upcomingMatchesResults
             ) {
-                holder.results(model)
+                holder.savedResults(model)
             }
 
 
@@ -79,7 +85,6 @@ class results : Fragment() {
         competitionList.layoutManager = layoutManager
         competitionList.itemAnimator = null
         competitionList.adapter = connect
-
 
     }
 

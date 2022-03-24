@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.competition.competitionLayouts.fixtures">
+    tools:context="com.plvaloyi.rugbyapp.ui.competition.competitionLayouts.fixtures">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mainRecycler"

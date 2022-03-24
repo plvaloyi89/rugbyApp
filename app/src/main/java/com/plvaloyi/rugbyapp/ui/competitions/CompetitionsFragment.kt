@@ -1,4 +1,4 @@
-package com.phillVa.rugbyapp.ui.competitions
+package com.plvaloyi.rugbyapp.ui.competitions
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,12 +11,11 @@ import androidx.fragment.app.setFragmentResult
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.phillVa.rugbyapp.R
+import com.plvaloyi.rugbyapp.R
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
-import com.phillVa.rugbyapp.view.SharedViewModel
-import kotlinx.android.synthetic.main.competitions.view.*
+import com.plvaloyi.rugbyapp.view.SharedViewModel
 
 
 class CompetitionsFragment : Fragment() {
